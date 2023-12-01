@@ -47,12 +47,20 @@ def _get_numbers_for_line(line):
 
 
 def _part1(lines):
+    """
+    Input is lines of text. In each line, find the first and last digit and
+    combine them into a 2-digit integer. Return the sum of the numbers from all
+    the lines.
+    """
     calibration_values = [_get_digits_for_line(line) for line in lines]
     calibration_sum = np.sum(calibration_values)
     return calibration_sum
 
 
 def _part2(lines):
+    """
+    Same as part 1, but the words "one" through "nine" also count.
+    """
     calibration_values = [_get_numbers_for_line(line) for line in lines]
     calibration_sum = np.sum(calibration_values)
     return calibration_sum
