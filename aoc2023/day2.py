@@ -37,17 +37,25 @@ class _Game:
                 return False
         return True
 
+    def power(self):
+        return np.multiply.reduce(list(self.min_cube_counts.values()))
 
-def _part1(lines):
+
+def _part1(games):
     """
     Input is lines of text. Each line is one Game.
     """
     assumption = {"red": 12, "green": 13, "blue": 14}
-    games = [_Game(line) for line in lines]
     return np.sum([game.id for game in games if game.compatible_with(assumption)])
+
+
+def _part2(games):
+    return np.sum([game.power() for game in games])
 
 
 def run():
     print("Day 2")
     lines = utils.load_lines("data/day2.txt")
-    print(f"Part 1: The sum of the IDs of compatible games is {_part1(lines)}.")
+    games = [_Game(line) for line in lines]
+    print(f"Part 1: The sum of the IDs of compatible games is {_part1(games)}.")
+    print(f"Part 2: The sum of the powers of the games is {_part2(games)}.")
