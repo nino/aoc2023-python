@@ -67,6 +67,7 @@ def _part2(lines):
 
 
 def run():
+    print("Day 1")
     lines = utils.load_lines("data/day1.txt")
     print(f"Part 1: The total calibration value is {_part1(lines)}.")
     print(f"Part 2: The total calibration value is {_part2(lines)}.")
